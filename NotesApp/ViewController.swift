@@ -20,21 +20,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.txtTitle.delegate = self
-        self.txtDetails.delegate = self
+        txtTitle.delegate = self as? UITextFieldDelegate
+        txtDetails.delegate = self as? UITextViewDelegate
         
     }
     
     
-    //This is for the keyboard to GO AWAYY !! when user clicks anywhere on the view
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         self.view.endEditing(true)
     }
     
-    
-    //This is for the keyboard to GO AWAYY !! when user clicks "Return" key  on the keyboard
-    
+        
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -47,7 +44,7 @@ class ViewController: UIViewController {
     let NewNotes =  MyNotes(context:context)
         NewNotes.title = txtTitle.text
         NewNotes.details = txtDetails.text
-        NewNotes.savadate=NSDate()
+        NewNotes.savadate=NSDate() as Date
         do{
             add.saveContext()
             print("save")

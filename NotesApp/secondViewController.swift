@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+
 
 class secondViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
 
